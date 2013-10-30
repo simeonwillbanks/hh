@@ -7,7 +7,7 @@ Hacking + Health = Happiness
 - [ ] suggestions in TOML ("time for jumping jacks")
 - [ ] interval default (60 minutes)
 - [ ] interval option (minutes, hours)
-- [ ] timeframe default (8 hours)
+- [ ] timeframe default (4 hours)
 - [ ] timeframe option
 - [ ] timeframe end message (beer, homebrew has an icon)
 - [ ] message alert
