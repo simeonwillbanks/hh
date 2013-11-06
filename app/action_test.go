@@ -1,23 +1,20 @@
 package hh
 
 import (
+	"bytes"
 	"github.com/codegangsta/cli"
 	"github.com/simeonwillbanks/hh/app"
-	"io/ioutil"
 	"testing"
 )
 
 func TestAction(t *testing.T) {
-	f, _ := ioutil.TempFile("", "")
-
-	hh.ActionWriter = f
+	buf := new(bytes.Buffer)
+	hh.ActionWriter = buf
 
 	var c cli.Context
 	hh.Action(&c)
 
-	contents, _ := ioutil.ReadFile(f.Name())
-
-	if string(contents) != "Hello Healthy Hacker!\n" {
+	if buf.String() != "Hello Healthy Hacker!\n" {
 		t.Error("TestAction test failed: Wrong message")
 	}
 }
