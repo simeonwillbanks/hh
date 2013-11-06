@@ -3,12 +3,21 @@ package hh
 import (
 	"github.com/codegangsta/cli"
 	"github.com/simeonwillbanks/hh/app"
+	"io/ioutil"
 	"testing"
 )
 
-func TestOutput(t *testing.T) {
+func TestAction(t *testing.T) {
+	f, _ := ioutil.TempFile("", "")
+
+	hh.ActionWriter = f
+
 	var c cli.Context
-	if hh.Action(&c) != "Hello Healthy Hacker!" {
-		t.Error("TestOutput test failed.")
+	hh.Action(&c)
+
+	contents, _ := ioutil.ReadFile(f.Name())
+
+	if string(contents) != "Hello Healthy Hacker!\n" {
+		t.Error("TestAction test failed: Wrong message")
 	}
 }

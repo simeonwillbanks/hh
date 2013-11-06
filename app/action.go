@@ -1,7 +1,13 @@
 package hh
 
-import "github.com/codegangsta/cli"
+import (
+	"fmt"
+	"github.com/codegangsta/cli"
+	"os"
+)
 
-func Action(c *cli.Context) string {
-	return "Hello Healthy Hacker!"
+var ActionWriter = os.Stdout
+
+func Action(c *cli.Context) {
+	fmt.Fprintln(ActionWriter, "Hello Healthy Hacker!")
 }
