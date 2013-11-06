@@ -1,9 +1,6 @@
 package hh
 
-import (
-	"fmt"
-	"github.com/codegangsta/cli"
-)
+import "github.com/codegangsta/cli"
 
 const (
 	NAME    = "hh"
@@ -16,8 +13,6 @@ func App(args []string) {
 	app.Name = NAME
 	app.Usage = USAGE
 	app.Version = VERSION
-	app.Action = func(c *cli.Context) {
-		fmt.Println(Action(c))
-	}
+	app.Action = Action
 	app.Run(args)
 }
